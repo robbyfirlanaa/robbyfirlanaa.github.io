@@ -1,0 +1,93 @@
+<html>
+<head>
+<title> Sistem Informasi Penggajian </title>
+</head>
+<body background="bg.png" topmargin="0">
+<a name="upper"></a>
+<center>
+<table width="1200" cellspacing="0" cellpadding="12" border="0" bgcolor="#4E5A62">
+    	<tr>
+        	<td width="40"><a href="menu.html" >
+            <font face="Arial, Helvetica, sans-serif" color="#FFF" size="+2"><b>Beranda</b></font></a></td>
+            <td width="40"><a href="penggajian.html">
+            <font face="Arial, Helvetica, sans-serif" color="#FFF" size="+2"><b>Penggajian</b></font></a></td>
+            <td width="40"><a href="tentangsaya.html">
+			<font face="Arial, Helvetica, sans-serif" color="#FFF" size="+2"><b>Tentang</b></font></a></td>
+            <td width="475">
+            </td>
+        </tr>	
+    </table>
+    <br /> <br /> 
+<h2> Sistem Informasi Penggajian PT Sumber Jaya </h2>
+<hr width="930" />
+<br />
+<table>
+	
+	<tr>
+	 <td><label for="nama">Nama :</label> </td>
+	 <td><input type="text" name="nama" id="nama"></td>
+	</tr>
+	
+	<tr>
+	 <td><label for="alamat">Alamat </label> </td>
+	 <td><textarea cols="30" rows="5" name="alamat" id="alamat"></textarea></td>
+	</tr>
+
+	<tr>
+	 <td><label for="bagian">Bagian </label> </td>
+	 <td><input type="text" name="bagian" id="bagian"></td>
+	</tr>
+	
+	<tr>
+	 <td><label for="wk">Waktu Kerja / Jam </label> </td>
+	 <td><input type="text" name="wk" id="wk"></td>
+	</tr>
+	
+
+	<tr>
+	 <td><label for="lembur">Lembur / Jam </label> </td>
+	 <td><input type="text" name="lembur" id="lembur"></td>
+	</tr>
+	
+	<tr>
+	 <td><label for="insentif">Insentif </label> </td>
+	 <td><textarea name="insentif" id="insentif"></textarea></td>
+	</tr>
+	
+	tr>
+	 <td><label for="total">Total Gaji </label> </td>
+	 <td><textarea name="total" id="total"></textarea></td>
+	</tr>
+	
+	<tr>
+	<td></td>
+	<td> 
+	<button onclick="rumus()"> Hitung </button>
+	</td>
+	</tr>
+</table>
+<script type="text/javascript">
+function rumus() {
+var wk=parseInt(document.getElementById('wk').value);
+var lembur=parseInt(document.getElementById('lembur').value);
+var hasil = wk * 90000;
+var tambah = lembur * 20000;
+var total;
+if (lembur >=3) {
+	total=hasil+tambah+20000;
+	document.getElementById('insentif').innerHTML='20000';
+}else{
+	if (lembur < 3) {
+	total=hasil+tambah;
+	document.getElementById('insentif').innerHTML='tidak dapat';
+	}
+}
+document.getElementById('total').innerHTML=total;
+}
+	
+</script>
+<br /> <br />
+<a href="login.html" align="center"> LOGOUT (Kembali ke Halaman Login) </a>
+</center>	
+</body>
+</html>
